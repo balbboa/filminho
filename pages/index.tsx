@@ -30,7 +30,7 @@ export default function Home() {
   const callImg = async (e: any) => {
     e.preventDefault();
 
-    if (e.target.elements.filme.value !== 'qwert') { await contImg() }
+    if (e.target.elements.filme.value !== 'o grande lebowski') { await contImg() }
     else { openModal() }
 
     if (changeImg == 1) {
