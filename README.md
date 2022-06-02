@@ -1,7 +1,7 @@
 <h1 align="center"> Filminho [Little Movie] </h1>
 
 <div align="center">
-  <img width="200" height="200" src="[https://cdn-icons-png.flaticon.com/512/2798/2798007.png">
+  <img width="200" height="200" src="https://cdn-icons-png.flaticon.com/512/2798/2798007.png">
 </div>
   
 <p align="center">
