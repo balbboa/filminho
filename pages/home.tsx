@@ -40,27 +40,27 @@ export default function Home() {
     else { 
       openModal() 
       setState(true)
-      setFoto1('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
-      setFoto2('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
-      setFoto3('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
-      setFoto4('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
-      setFoto5('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto1('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto2('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto3('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto4('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto5('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
 
     if (changeImg == 0) {
-      setFoto1('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto1('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg == 1) {
-      setFoto2('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto2('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg == 2) {
-      setFoto3('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto3('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg == 3) {
-      setFoto4('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto4('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg == 4) {
-      setFoto5('cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto5('cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg > 5) {
       setState(false)
@@ -102,7 +102,7 @@ export default function Home() {
         <div className="mb-5 flex flex-wrap justify-center">
           <img
             src={Foto}
-            className="cursor-pointer md:transition-all transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm"
+            className="cursor-pointer md:transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm"
             alt="..."
           />
           <img
