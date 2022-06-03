@@ -18,7 +18,7 @@ export default function Home() {
   const [foto3, setFoto3] = useState<any>('hidden')
   const [foto4, setFoto4] = useState<any>('hidden')
   const [foto5, setFoto5] = useState<any>('hidden')
-
+  const [state, setState] = useState<boolean>()
 
   function closeModal() {
     setIsOpen(false)
@@ -39,30 +39,35 @@ export default function Home() {
     else { openModal() }
 
     if (changeImg == 1) {
-      setFoto1('m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto1('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg == 2) {
-      setFoto2('m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto2('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg == 3) {
-      setFoto3('m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto3('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg == 4) {
-      setFoto4('m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto4('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg == 5) {
-      setFoto5('m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto5('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
+    if (changeImg > 5) {
+      setState(false)
+      openModal()
+    }
+
   }
 
   return (
     <div className="flex flex-col w-full h-full">
       <form className="mt-5 mx-auto" onSubmit={callImg}>
         <div className="shadow overflow-hidden sm:rounded-md">
-          <div className="px-4 py-5 bg-white sm:p-6">
+          <div className="px-4 py-5 bg-yellow-100 sm:p-6">
             <div className="flex flex-row align-middle justify-center">
               <div className="col-span-10">
-                <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="first-name" className="block text-sm font-medium text-black">
                   Filminho:
                 </label>
                 <input
@@ -87,7 +92,7 @@ export default function Home() {
         <div className="mb-5 flex flex-wrap justify-center">
           <img
             src={Foto}
-            className="m-1 bg-white border border-yellow-500 rounded-lg max-w-sm"
+            className="cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm"
             alt="..."
           />
           <img
@@ -136,7 +141,11 @@ export default function Home() {
                     as="h3"
                     className="text-lg font-bold text-center text-black"
                   >
-                    Boa campeão!
+                    
+                    {state == false ? (
+                      'Not this time 😓'
+                    ) : ('Boa campeão! 😍')
+                    }
                   </Dialog.Title>
 
 
