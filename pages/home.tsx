@@ -38,19 +38,19 @@ export default function Home() {
     if (e.target.elements.filme.value !== 'o grande lebowski') { await contImg() }
     else { openModal() }
 
-    if (changeImg == 1) {
+    if (changeImg == 0) {
       setFoto1('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
-    if (changeImg == 2) {
+    if (changeImg == 1) {
       setFoto2('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
-    if (changeImg == 3) {
+    if (changeImg == 2) {
       setFoto3('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
-    if (changeImg == 4) {
+    if (changeImg == 3) {
       setFoto4('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
-    if (changeImg == 5) {
+    if (changeImg == 4) {
       setFoto5('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
     }
     if (changeImg > 5) {
