@@ -6,7 +6,7 @@ export default function Entry() {
   return (
     <Container title="Filminho">
     <div className="flex flex-col w-full h-full">
-      <div className="flex flex-col align-middle items-center justify-center my-40 mx-auto">
+      <div className="flex flex-col align-middle items-center justify-center my-28 mx-auto">
         <img
           src="movie.png"
           className='w-64'
