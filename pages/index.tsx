@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import Container from '../components/container';
 
 export default function Entry() {
 
   return (
+    <Container title="Filminho">
     <div className="flex flex-col w-full h-full">
       <div className="flex flex-col align-middle items-center justify-center my-40 mx-auto">
         <img
@@ -26,7 +28,7 @@ export default function Entry() {
         </Link>
       </div>
     </div>
-
+    </Container>
 
   )
 }

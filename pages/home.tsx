@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import Link from 'next/link';
 import { Fragment, useState } from 'react';
+import Container from '../components/container';
 
 export default function Home() {
 
@@ -61,6 +62,7 @@ export default function Home() {
   }
 
   return (
+    <Container title="Filminho">
     <div className="flex flex-col w-full h-full">
       <form className="mt-5 mx-auto" onSubmit={callImg}>
         <div className="shadow overflow-hidden sm:rounded-md">
@@ -166,6 +168,7 @@ export default function Home() {
       </Transition>
 
     </div>
+    </Container>
 
 
   )
