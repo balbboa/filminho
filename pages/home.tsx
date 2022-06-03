@@ -37,7 +37,15 @@ export default function Home() {
     e.preventDefault();
 
     if (e.target.elements.filme.value !== 'o grande lebowski') { await contImg() }
-    else { openModal() }
+    else { 
+      openModal() 
+      setState(true)
+      setFoto1('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto2('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto3('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto4('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+      setFoto5('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
+    }
 
     if (changeImg == 0) {
       setFoto1('cursor-pointer transition ease-in-out delay-150 hover:scale-150 duration-300 m-1 bg-white border border-yellow-500 rounded-lg max-w-sm')
@@ -81,7 +89,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="px-4 pb-3 text-center bg-gray-50">
+          <div className="px-4 pb-3 text-center bg-yellow-100">
             <button type="submit"
               className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white  bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
             >
