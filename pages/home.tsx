@@ -1,9 +1,15 @@
 import { Dialog, Transition } from '@headlessui/react';
 import Link from 'next/link';
 import { Fragment, useState } from 'react';
-import Container from '../components/container';
+import Container from '../components/Container';
 
 export default function Home() {
+
+  let movieSearchBox: any = ''
+
+  if (typeof document !== "undefined") {
+    movieSearchBox = (document.getElementById('filme') as HTMLInputElement)
+  }
 
   const Foto = '1.jpeg';
   const Foto1 = '2.jpeg';
@@ -68,7 +74,7 @@ export default function Home() {
     }
   }
 
-  async function loadMovies(searchMovie: string){
+  async function loadMovies(searchMovie: string) {
     const URL = `https://imdb-api.com/en/API/SearchMovie/k_wb1ha0ir/${searchMovie}`
     const res = await fetch(`${URL}`)
     const data = await res.json()
@@ -76,7 +82,10 @@ export default function Home() {
     console.log(data.results)
   }
 
-  loadMovies('big lebowski')
+  function findMovies() {
+    let searchMovies = (movieSearchBox.value).trim()
+    loadMovies(searchMovies)
+  }
 
   return (
     <Container title="Filminho">
@@ -87,7 +96,7 @@ export default function Home() {
             <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
               <svg className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </div>
-            <input type="search" id="filme" name='filme' className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500" placeholder="Digite o filme do dia" required />
+            <input onKeyUp={findMovies} type="search" id="filme" name='filme' className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500" placeholder="Digite o filme do dia" required />
             <button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Xama</button>
           </div>
         </form>
@@ -167,11 +176,8 @@ export default function Home() {
             </div>
           </Dialog>
         </Transition>
-
       </div>
     </Container>
-
-
   )
 }
 
