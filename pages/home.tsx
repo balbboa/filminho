@@ -5,12 +5,12 @@ import Container from '../components/Container';
 
 export default function Home() {
 
-  let movieSearchBox: any = ''
+  let movieSearchBox: null | any = ''
   let searchList: any = ''
 
   if (typeof document !== "undefined") {
-    movieSearchBox = (document.querySelector('#idfilme') as HTMLInputElement)
-    searchList = (document.querySelector('#search-list') as HTMLInputElement)
+    movieSearchBox = (document.getElementById('idfilme') as HTMLInputElement)
+    searchList = (document.getElementById('search-list') as HTMLInputElement)
   }
 
   const Foto = '1.jpeg';
@@ -28,7 +28,6 @@ export default function Home() {
   const [foto4, setFoto4] = useState<any>('hidden')
   const [foto5, setFoto5] = useState<any>('hidden')
   const [state, setState] = useState<boolean>()
-  const [catchMovie, setCatchMovie] = useState<any>()
 
   function closeModal() {
     setIsOpen(false)
@@ -89,8 +88,11 @@ export default function Home() {
   }
 
   function findMovies() {
-    let searchMovies = (movieSearchBox.value).trim()
-    loadMovies(searchMovies)
+    let searchMovies = ''
+    if (movieSearchBox) {
+      searchMovies = (movieSearchBox.value).trim()
+      loadMovies(searchMovies)
+    }
   }
 
   function listMovies(movies: string | any[]) {
@@ -129,7 +131,7 @@ export default function Home() {
                 alt="..."
               />
             </div>
-            <input onKeyUp={findMovies} type="search" id="idfilme" name='filme' className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500" placeholder="Digite o filme do dia" required />
+            <input onKeyUp={findMovies} type="search" id="idfilme" name="filme" className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500" placeholder="Digite o filme do dia" required />
             <button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Xama</button>
           </div>
           <div className="text-sm absolute" id="search-list">
