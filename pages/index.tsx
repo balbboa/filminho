@@ -8,7 +8,6 @@ import Logo from "../public/logo.png";
 import Movie from "../public/movie.png";
 import Question from "../public/question.png";
 
-
 export default function Entry() {
   const [modal, setModal] = useState<any>(false);
 
@@ -30,26 +29,30 @@ export default function Entry() {
           >
             <Image
               src={Question}
-              className="w-6 h-6"
               width={30}
               height={30}
+              layout="fixed"
               alt="..."
             />
           </button>
         </div>
         <div className="flex flex-col align-middle items-center justify-center my-20 mx-auto">
           <Image
-              src={Movie}
-              width={300}
-              height={300}
-              alt="..."
-            />
-            <Image
-              src={Logo}
-              width={250}
-              height={150}
-              alt="..."
-            />
+            className="w-64"
+            src={Movie}
+            width={300}
+            height={300}
+            layout="fixed"
+            alt="..."
+          />
+          <Image
+            className="w-64"
+            src={Logo}
+            layout="fixed"
+            width={250}
+            height={150}
+            alt="..."
+          />
 
           <a href="/home">
             <button className="text-white font-medium p-0 w-20 h-20 bg-yellow-600 rounded-full hover:bg-yellow-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
