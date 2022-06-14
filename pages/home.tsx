@@ -44,7 +44,7 @@ export default function Home() {
   const callImg = async (e: any) => {
     e.preventDefault();
 
-    if (e.target.elements.filme.value !== "The Big Lebowski") {
+    if (e.target.elements.filme.value !== "Captain Fantastic") {
       await contImg();
     } else {
       openModal();
