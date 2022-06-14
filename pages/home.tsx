@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Dialog, Transition } from '@headlessui/react';
 import Link from 'next/link';
 import { Fragment, useState } from 'react';
@@ -115,8 +116,6 @@ export default function Home() {
       searchList.appendChild(movieListItem);
     }
   }
-
-
 
   return (
     <Container title="Filminho">

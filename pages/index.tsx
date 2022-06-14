@@ -1,4 +1,5 @@
-import Link from 'next/link';
+/* eslint-disable @next/next/no-html-link-for-pages */
+/* eslint-disable @next/next/no-img-element */
 import Container from '../components/Container';
 
 export default function Entry() {
@@ -19,13 +20,13 @@ export default function Entry() {
           alt="..."
         />
 
-        <Link href="/home">
+        <a href="/home">
           <button 
             className="text-white font-medium p-0 w-20 h-20 bg-yellow-600 rounded-full hover:bg-yellow-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none"
           >
             Lesgo!
           </button>
-        </Link>
+        </a>
       </div>
     </div>
     </Container>
