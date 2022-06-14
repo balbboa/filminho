@@ -38,7 +38,6 @@ export default function Entry() {
         </div>
         <div className="flex flex-col align-middle items-center justify-center my-20 mx-auto">
           <Image
-            className="w-64"
             src={Movie}
             width={300}
             height={300}
@@ -46,7 +45,6 @@ export default function Entry() {
             alt="..."
           />
           <Image
-            className="w-64"
             src={Logo}
             layout="fixed"
             width={250}
