@@ -6,7 +6,7 @@ body {
   background-color: #000000;
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
   background-image: url('../public/space.jpg');
   background-position: center;
   background-size: cover;

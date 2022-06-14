@@ -6,9 +6,11 @@ import Container from '../components/Container';
 export default function Home() {
 
   let movieSearchBox: any = ''
+  let searchList: any = ''
 
   if (typeof document !== "undefined") {
-    movieSearchBox = (document.getElementById('filme') as HTMLInputElement)
+    movieSearchBox = (document.querySelector('#idfilme') as HTMLInputElement)
+    searchList = (document.querySelector('#search-list') as HTMLInputElement)
   }
 
   const Foto = '1.jpeg';
@@ -26,6 +28,7 @@ export default function Home() {
   const [foto4, setFoto4] = useState<any>('hidden')
   const [foto5, setFoto5] = useState<any>('hidden')
   const [state, setState] = useState<boolean>()
+  const [catchMovie, setCatchMovie] = useState<any>()
 
   function closeModal() {
     setIsOpen(false)
@@ -42,7 +45,7 @@ export default function Home() {
   const callImg = async (e: any) => {
     e.preventDefault();
 
-    if (e.target.elements.filme.value !== 'o grande lebowski') { await contImg() }
+    if (e.target.elements.filme.value !== 'The Big Lebowski') { await contImg() }
     else {
       openModal()
       setState(true)
@@ -72,20 +75,46 @@ export default function Home() {
       setState(false)
       openModal()
     }
+    searchList.classList.remove('hidden');
   }
 
   async function loadMovies(searchMovie: string) {
-    const URL = `https://imdb-api.com/en/API/SearchMovie/k_wb1ha0ir/${searchMovie}`
+    const URL = `https://api.themoviedb.org/3/search/movie?api_key=0c7861c0f9f582ae2a9ca7772ea92061&query=${searchMovie}`
     const res = await fetch(`${URL}`)
     const data = await res.json()
 
     console.log(data.results)
+
+    listMovies(data.results)
   }
 
   function findMovies() {
     let searchMovies = (movieSearchBox.value).trim()
     loadMovies(searchMovies)
   }
+
+  function listMovies(movies: string | any[]) {
+    searchList.innerHTML = ''
+    for (let i = 0; i < movies?.length; i++) {
+      let movieListItem = document.createElement('div');
+      movieListItem.dataset.id = movies[i].id; // setting movie id in  data-id
+      movieListItem.classList.add('search-list-item');
+
+      movieListItem.innerHTML = `
+      <div class="flex justify-between cursor-pointer bg-gray-700 border-gray-600 text-white hover:text-black hover:bg-yellow-100 px-2 py-2">
+          <h3 class="font-extrabold" >${movies[i].title}</h3>
+          <p>${movies[i].release_date}</p>
+      </div>
+      `;
+      movieListItem.addEventListener('click', async () => {
+        movieSearchBox.value = movies[i].title;
+        searchList.classList.add('hidden');
+      })
+      searchList.appendChild(movieListItem);
+    }
+  }
+
+
 
   return (
     <Container title="Filminho">
@@ -94,16 +123,19 @@ export default function Home() {
           <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
           <div className="relative">
             <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-            <img
-              src={'search.png'}
-              className='w-4 h-4'
-              alt="..."
-            />
+              <img
+                src={'search.png'}
+                className='w-4 h-4'
+                alt="..."
+              />
             </div>
-            <input onKeyUp={findMovies} type="search" id="filme" name='filme' className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500" placeholder="Digite o filme do dia" required />
+            <input onKeyUp={findMovies} type="search" id="idfilme" name='filme' className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500" placeholder="Digite o filme do dia" required />
             <button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Xama</button>
           </div>
+          <div className="text-sm absolute" id="search-list">
+          </div>
         </form>
+
         <div className="mt-5 mx-auto">
           <div className="mb-5 flex flex-wrap justify-center">
             <img
