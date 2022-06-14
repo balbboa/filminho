@@ -161,6 +161,7 @@ export default function Home() {
               type="search"
               id="idfilme"
               name="filme"
+              autoComplete="off"
               className="block p-4 pl-10 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-yellow-500 focus:border-yellow-500"
               placeholder="Digite o filme do dia"
               required
