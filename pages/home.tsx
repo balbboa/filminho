@@ -5,25 +5,32 @@ import { Fragment, useEffect, useState } from "react";
 import Container from "../components/Container";
 
 export default function Home() {
-  
   useEffect(() => {
-    getMovieName()
-  }, [])
-  
+    getMovieName();
+  }, []);
+
   let movieSearchBox: null | any = "";
   let searchList: any = "";
+  let background: any = "";
 
   if (typeof document !== "undefined") {
     movieSearchBox = document.getElementById("idfilme") as HTMLInputElement;
     searchList = document.getElementById("search-list") as HTMLInputElement;
+    background = document.getElementById("back") as HTMLInputElement;
   }
 
-  const Foto = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/1.jpeg";
-  const Foto1 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/2.jpeg";
-  const Foto2 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/3.jpeg";
-  const Foto3 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/4.jpeg";
-  const Foto4 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/5.jpeg";
-  const Foto5 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/6.jpeg";
+  const Foto =
+    "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/1.jpeg";
+  const Foto1 =
+    "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/2.jpeg";
+  const Foto2 =
+    "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/3.jpeg";
+  const Foto3 =
+    "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/4.jpeg";
+  const Foto4 =
+    "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/5.jpeg";
+  const Foto5 =
+    "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/6.jpeg";
 
   const [isOpen, setIsOpen] = useState<any>(false);
   const [changeImg, setChangeImg] = useState<any>(0);
@@ -52,13 +59,13 @@ export default function Home() {
     const res = await fetch(`${URL1}`);
     const data = await res.json();
     const rows = data
-    .filter((item: { id: number; }) => item.id == 503762025)
-    .map((item: { description: any; }) => {
-      return ({
-        name: item.description,
-      })
-    })
-    setName(rows[0].name)
+      .filter((item: { id: number }) => item.id == 503762025)
+      .map((item: { description: any }) => {
+        return {
+          name: item.description,
+        };
+      });
+    setName(rows[0].name);
   }
 
   const callImg = async (e: any) => {
@@ -158,13 +165,22 @@ export default function Home() {
         movieSearchBox.value = movies[i].title;
         searchList.classList.add("hidden");
       });
+      background.addEventListener("click", async () => {
+        searchList.classList.add("hidden");
+      });
+   
       searchList.appendChild(movieListItem);
     }
   }
+  function removeHide(){
+    searchList.classList.remove("hidden")
+  }
+    
+  
 
   return (
     <Container title="Filminho">
-      <div className="flex flex-col w-full h-full">
+      <div className="flex flex-col w-full h-full" id="back">
         <form className="mt-5 w-1/3 mx-auto" onSubmit={callImg}>
           <label
             htmlFor="default-search"
@@ -177,6 +193,7 @@ export default function Home() {
               <img src={"search.png"} className="w-4 h-4" alt="..." />
             </div>
             <input
+              onClick={removeHide}
               onKeyUp={findMovies}
               type="search"
               id="idfilme"
