@@ -80,11 +80,12 @@ export default function Entry() {
                   >
                     Filminho Project
                   </Dialog.Title>
-                  <p className="text-ellipsis">
+                  <p className="text-ellipsis py-5">
                     É um game de advinhação para filmes, todo dia teremos um
                     filme novo com 6 frames diferentes, tente acertar se for
                     capaz 😉
                   </p>
+                  {/* <a className="border-orange-900 bg-orange-200 border rounded-md p-2" href="https://www.buymeacoffee.com/balbboa"> Buy me a coffee! ☕</a> */}
                   <div className="mt-4 text-center">
                     <button
                       onClick={closeModal}
