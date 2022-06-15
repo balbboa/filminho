@@ -51,8 +51,14 @@ export default function Home() {
     const URL1 = `https://api.github.com/users/balbboa/repos`;
     const res = await fetch(`${URL1}`);
     const data = await res.json();
-    console.log(data[29].description);
-    setName(data[29].description)
+    const rows = data
+    .filter((item: { id: number; }) => item.id == 503762025)
+    .map((item: { description: any; }) => {
+      return ({
+        name: item.description,
+      })
+    })
+    setName(rows[0].name)
   }
 
   const callImg = async (e: any) => {
