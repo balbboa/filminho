@@ -130,7 +130,6 @@ export default function Home() {
       setState(false);
       openModal();
     }
-    searchList.classList.remove("hidden");
   };
 
   async function loadMovies(searchMovie: string) {
