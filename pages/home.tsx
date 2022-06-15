@@ -1,10 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import { Dialog, Transition } from "@headlessui/react";
 import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Container from "../components/Container";
 
 export default function Home() {
+  
+  useEffect(() => {
+    getMovieName()
+  }, [])
+  
   let movieSearchBox: null | any = "";
   let searchList: any = "";
 
@@ -13,12 +18,12 @@ export default function Home() {
     searchList = document.getElementById("search-list") as HTMLInputElement;
   }
 
-  const Foto = "1.jpeg";
-  const Foto1 = "2.jpeg";
-  const Foto2 = "3.jpeg";
-  const Foto3 = "4.jpeg";
-  const Foto4 = "5.jpeg";
-  const Foto5 = "6.jpeg";
+  const Foto = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/1.jpeg";
+  const Foto1 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/2.jpeg";
+  const Foto2 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/3.jpeg";
+  const Foto3 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/4.jpeg";
+  const Foto4 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/5.jpeg";
+  const Foto5 = "https://raw.githubusercontent.com/balbboa/RepoFilminho/main/6.jpeg";
 
   const [isOpen, setIsOpen] = useState<any>(false);
   const [changeImg, setChangeImg] = useState<any>(0);
@@ -28,6 +33,7 @@ export default function Home() {
   const [foto4, setFoto4] = useState<any>("hidden");
   const [foto5, setFoto5] = useState<any>("hidden");
   const [state, setState] = useState<boolean>();
+  const [name, setName] = useState<string>();
 
   function closeModal() {
     setIsOpen(false);
@@ -41,10 +47,18 @@ export default function Home() {
     setChangeImg(changeImg + 1);
   }
 
+  async function getMovieName() {
+    const URL1 = `https://api.github.com/users/balbboa/repos`;
+    const res = await fetch(`${URL1}`);
+    const data = await res.json();
+    console.log(data[29].description);
+    setName(data[29].description)
+  }
+
   const callImg = async (e: any) => {
     e.preventDefault();
 
-    if (e.target.elements.filme.value !== "Captain Fantastic") {
+    if (e.target.elements.filme.value !== name) {
       await contImg();
     } else {
       openModal();
