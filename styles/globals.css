@@ -12,3 +12,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.custom {
+  width: 100vw;
+  height: 100vh;
+}

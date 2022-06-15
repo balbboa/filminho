@@ -176,11 +176,9 @@ export default function Home() {
     searchList.classList.remove("hidden")
   }
     
-  
-
   return (
     <Container title="Filminho">
-      <div className="flex flex-col w-full h-full" id="back">
+      <div className="flex flex-col w-full h-full custom" id="back">
         <form className="mt-5 w-1/3 mx-auto" onSubmit={callImg}>
           <label
             htmlFor="default-search"
