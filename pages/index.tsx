@@ -69,7 +69,7 @@ export default function Entry() {
 
           <a href="/home">
             <button className="text-white font-medium p-0 w-20 h-20 bg-yellow-600 rounded-full hover:bg-yellow-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
-              Lesgo!
+              Go!
             </button>
           </a>
         </div>

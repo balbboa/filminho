@@ -55,17 +55,10 @@ export default function Home() {
   }
 
   async function getMovieName() {
-    const URL1 = `https://api.github.com/users/balbboa/repos`;
+    const URL1 = `https://raw.githubusercontent.com/balbboa/RepoFilminho/main/movie.json`;
     const res = await fetch(`${URL1}`);
     const data = await res.json();
-    const rows = data
-      .filter((item: { id: number }) => item.id == 503762025)
-      .map((item: { description: any }) => {
-        return {
-          name: item.description,
-        };
-      });
-    setName(rows[0].name);
+    setName(data.name);
   }
 
   const callImg = async (e: any) => {
