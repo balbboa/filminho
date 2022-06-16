@@ -5,20 +5,11 @@ import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import Container from "../components/Container";
-import Brazil from "../public/brazil.png";
-import Eua from "../public/eua.png";
 import Logo from "../public/logo.png";
 import Movie from "../public/movie.png";
 import Question from "../public/question.png";
 
 export default function Entry() {
-  let enText: any = "";
-  let ptText: any = "";
-
-  if (typeof document !== "undefined") {
-    enText = document.getElementById("en") as HTMLParagraphElement;
-    ptText = document.getElementById("pt") as HTMLParagraphElement;
-  }
 
   const [modal, setModal] = useState<any>(false);
 
@@ -28,16 +19,6 @@ export default function Entry() {
 
   function openModal() {
     setModal(true);
-  }
-
-  function showPt(){
-    enText.classList.add("hidden")
-    ptText.classList.remove("hidden")
-  }
-
-  function showEn(){
-    ptText.classList.add("hidden")
-    enText.classList.remove("hidden")
   }
 
   return (
@@ -89,28 +70,8 @@ export default function Entry() {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="z-50 absolute w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title className="flex align-middle justify-between text-lg mb-5 font-bold text-black">
+                  <Dialog.Title className="text-lg mb-5 font-bold text-black">
                     <h3>Filminho Project</h3>
-                    <div>
-                      <Image
-                        className="cursor-pointer"
-                        onClick={showPt}
-                        src={Brazil}
-                        width={20}
-                        height={20}
-                        layout="fixed"
-                        alt="..."
-                      />
-                      <Image
-                        className="cursor-pointer"
-                        onClick={showEn}
-                        src={Eua}
-                        width={20}
-                        height={20}
-                        layout="fixed"
-                        alt="..."
-                      />
-                    </div>
                   </Dialog.Title>
                   <p id="pt" className="text-ellipsis py-5">
                     É um game de advinhação para filmes, você tem 6 tentativas
@@ -118,12 +79,7 @@ export default function Entry() {
                     é adicionado como dica. Todo dia teremos um filme novo,
                     tente acertar se for capaz 😉
                   </p>
-                  <p id="en" className="text-ellipsis py-5 hidden">
-                    It's a guessing game for movies, you have 6 attempts to win,
-                    for each mistake a frame will be displayed as a tip.
-                    Everyday there will be a new movie, try to win if you can!
-                    😉
-                  </p>
+           
                   {/* <a className="border-orange-900 bg-orange-200 border rounded-md p-2" href="https://www.buymeacoffee.com/balbboa"> Buy me a coffee! ☕</a> */}
                   <div className="mt-4 text-center">
                     <button

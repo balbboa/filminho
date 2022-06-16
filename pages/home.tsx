@@ -171,7 +171,7 @@ export default function Home() {
   return (
     <Container title="Filminho">
       <div className="flex flex-col w-full h-full custom" id="back">
-        <form className="mt-5 w-1/3 mx-auto" onSubmit={callImg}>
+        <form className="mt-5 md:w-1/3 w-96 ml-4 md:mx-auto" onSubmit={callImg}>
           <label
             htmlFor="default-search"
             className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
@@ -197,10 +197,10 @@ export default function Home() {
               type="submit"
               className="text-white absolute right-2.5 bottom-2.5 bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
             >
-              Xama
+              Dale
             </button>
           </div>
-          <div className="text-sm w-1/3 absolute" id="search-list"></div>
+          <div className="text-sm overflow-y-auto h-2/3 md:w-1/3 w-full absolute" id="search-list"></div>
         </form>
 
         <div className="mt-5 mx-auto">
@@ -236,13 +236,13 @@ export default function Home() {
                       as="h3"
                       className="text-lg font-bold text-center text-black"
                     >
-                      {state == false ? "Not this time 😓" : "Boa campeão! 😍"}
+                      {state == false ? "Lute como nunca, perca como sempre 😓" : "Boa campeão! 😍"}
                     </Dialog.Title>
 
                     <div className="mt-4 text-center">
                       <Link href="/">
                         <button className="inline-flex justify-center rounded-md border border-transparent bg-orange-100 px-4 py-2 text-sm font-medium text-orange-900 hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">
-                          Cabô
+                          Voltar
                         </button>
                       </Link>
                     </div>

@@ -6,7 +6,7 @@ body {
   background-color: #000000;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background-image: url('../public/space.webp');
   background-position: center;
   background-size: cover;
